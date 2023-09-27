@@ -1,0 +1,58 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>ESRE Example</title>
+</head>
+
+<body>
+    <div class="row bg-dark w-full">
+        <div class="col bg-dark">
+            <a href="/">
+                <img src="/static/elasticTypeMark.png" width="118" height="40">
+            </a>
+        </div>
+    </div>
+    <div class="container w-80">
+        <div class="row justify-content-center" style="margin: 30px">
+            <div class="col-4">
+                <p>検索</p>
+                <form class="form-inline">
+                    <input type="text" id="text" class="form-control" placeholder="ここに質問を入力してください">
+                    <button type="button" class="btn btn-primary" id="btn">検索</button>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="margin: 30px;">
+            <div class="col text-center style="padding: 30px;">
+                <h1 class="text-xl font-bold mb-4">質問例</h1>
+                <p></p>
+
+                <a href="/api/search_results?var1=現在のガソリン価格は？"
+                    class="text-lg text-dark-blue hover:text-blue-700">現在のガソリン価格は？</a><br>
+                <a href="/api/search_results?var1=確定拠出年金制度への加入方法は？"
+                    class="text-lg text-dark-blue hover:text-blue-700">確定拠出年金制度への加入方法は？</a><br>
+                <a href="/api/search_results?var1=ハワイの山火事の状況は？"
+                    class="text-lg text-dark-blue hover:text-blue-700">ハワイの山火事の状況は？</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#btn').click(function () {
+                console.log($('#text').val());
+                let url = "/api/search_results?var1=" + $('#text').val()
+                console.log(url)
+                window.location.href = url;
+            })
+        });
+    </script>
+</body>
+
+</html>

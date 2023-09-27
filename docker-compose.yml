@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  esre_flask:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: esre_flask
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/src

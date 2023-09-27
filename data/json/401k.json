@@ -1,0 +1,32 @@
+[
+	{
+		"author": "Elastic",
+		"title": "確定拠出年金制度について",
+		"description": "Elastic 確定拠出年金制度プランはhoge Investmentsを通じて管理されています。アカウントの詳細を確認したり変更したりするには、www.401k.comでhoge NetBenefitsにログインしてください。hogeの既存のアカウント（Elastic 401k以外）がある場合、既存の資格情報でログインできます。そうでない場合、ポータルに初めてアクセスする際に、ログイン情報を設定して始めるために「登録」オプションを選択してください。アカウントアクセスやhogeプラットフォームに関する質問がある場合は、NetBenefitsの概要を参照して追加の指示を確認してください。このチュートリアルでは、アカウントのナビゲーションも案内します。",
+		"url": "https://www.elastic.co/",
+		"urlToImage": "https://www.elastic.co/",
+		"publishedAt": "2023-08-16T15:01:00Z",
+		"content": "",
+		"category": "elastic"
+	},
+	{
+		"author": "Elastic",
+		"title": "確定拠出年金制度の参加資格について",
+		"description": "すべての通常のアメリカの従業員は、資格が毎月の1日から有効となり、確定拠出年金制度に参加することができます。たとえば、3月10日に雇われた場合、4月1日から参加資格があります。また、別の国からアメリカに転任する現在のElasticの従業員の場合、転任日がプランの資格に関する目的での「アメリカでの雇用日」と見なされます。",
+		"url": "https://www.elastic.co/",
+		"urlToImage": "https://www.elastic.co/",
+		"publishedAt": "2023-08-16T15:01:00Z",
+		"content": "",
+		"category": "elastic"
+	},
+	{
+		"author": "Elastic",
+		"title": "確定拠出年金制度のロールオーバーについて",
+		"description": "もし以前の雇用主の確定拠出年金制度資産が残っている場合、それらの資産をElastic 確定拠出年金制度プランにロールオーバーして統合することを検討することができます。 ロールオーバー手続きはオンラインで開始できます。 hoge NetBenefitsにログインし、メイン画面の「クイックリンク」ドロップダウンメニューから「Rollovers」を選択してください。 オンラインのプロンプトに従って手続きを進めることができます。 ロールオーバーは、年間のIRSへの貢献制限には含まれないことに注意してください。",
+		"url": "https://www.elastic.co/",
+		"urlToImage": "https://www.elastic.co/",
+		"publishedAt": "2023-08-16T15:01:00Z",
+		"content": "",
+		"category": "elastic"
+	}
+]
