@@ -50,7 +50,7 @@ sentencepiece==0.1.99
 six==1.16.0
 threadpoolctl==3.2.0
 tokenizers==0.13.3
-torch==1.13.0
+torch==1.13.1
 torchvision==0.14.1
 tqdm==4.66.1
 transformers==4.33.3
