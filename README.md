@@ -10,7 +10,13 @@ NewsAPI contents are used, but you can easily modify to use other data sources.
 - Elasticsearch cluster on Elastic Cloud
   - This program assumes that Elasticsearch cluster is craeted on Elastic Cloud
 - NewsAPI's API Key (Optional)
-  
+
+## Add extensions
+Add `icu-analysis` and `kuromoji-analysis`
+
+Follow this link
+https://www.elastic.co/guide/en/cloud/current/ec-adding-elastic-plugins.html
+
 ## Create .env file
 ```
 openai_api_key=<openapi key>
@@ -27,13 +33,17 @@ newsapi_key=<newsapi key>
 
 ## Build and run Docker container
 `docker compose up -d`
-## Create Elasticsearch index with kuromoji analyzer and Dense Vector embedding
+## Initialize the environment
+This step will do the followings:
+1. Upload cl-tohoku/bert-base-japanese-v2 from Hagging Face
+2. Create the ingest pipeline to embed the vector
+3. Create the mapping
+
 Enter Docker Container and execute `create_index.py`
 ```
 docker exec -it esre_flask /bin/bash
-python create_index.py
+python ./initialize.sh
 ```
-You can do this by using Kibana Dev Tools, too. Copy `body` contents and paste it in Dev Tools.
 
 ## index documents
 ```
@@ -44,3 +54,18 @@ cd data
 
 ## Access the page
 http://localhost:4000
+
+# Use the different models
+- Change --hub-model-id in initialize.sh
+- Change model_id of ingest pipeline and text_embedding mapping accordingly in create_index.py
+- Change knn and rrf query in app.py
+
+# Add more NewsAPI documents
+- Modify url of newsapi.py if you want to get different topics (now get everything)
+For example
+```
+docker exec -it esre_flask /bin/bash
+cd data
+python newsapi.py コロナウイルス ./json/covid.json
+load1.sh ./json/covid.json
+```
