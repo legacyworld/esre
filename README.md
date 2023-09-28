@@ -12,7 +12,7 @@ NewsAPI contents are used, but you can easily modify to use other data sources.
 - NewsAPI's API Key (Optional)
 
 ## Add extensions
-Add `icu-analysis` and `kuromoji-analysis`
+Add `analysis-icu` and `analysis-kuromoji`
 
 Follow this link
 https://www.elastic.co/guide/en/cloud/current/ec-adding-elastic-plugins.html
