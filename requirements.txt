@@ -1,0 +1,11 @@
+elasticsearch
+openai
+flask
+python-dotenv
+torch==1.13
+transformers
+sentence_transformers
+fugashi
+ipadic
+unidic_lite
+eland

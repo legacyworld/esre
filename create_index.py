@@ -9,7 +9,23 @@ cloud_user = os.environ['cloud_user']
 es = Elasticsearch(cloud_id=cloud_id, basic_auth=(cloud_user, cloud_pass),request_timeout=10)
 print(es.info())
 search_index = os.environ['search_index']
-#search_index = 'esre_test'
+pipeline_id = "japanese-text-embeddings"
+body = {
+  "description": "Text embedding pipeline",
+  "processors": [
+    {
+      "inference": {
+        "model_id": "cl-tohoku__bert-base-japanese-v2",
+        "target_field": "text_embedding",
+        "field_map": {
+          "title": "text_field"
+        }
+      }
+    }
+  ]
+}
+print(es.ingest.put_pipeline(id=pipeline_id,body=body))
+
 body = {
   'settings': {
     'index': {

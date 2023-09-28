@@ -1,6 +1,6 @@
 FROM python:3.9-slim
-
-RUN pip3 install elasticsearch openai flask python-dotenv
-ENV PYTHONUNBUFFERED 1
 WORKDIR /src
+COPY . .
+RUN pip3 install -r requirements.txt
+ENV PYTHONUNBUFFERED 1
 CMD [ "python3", "-u" , "app.py" ]
