@@ -30,6 +30,8 @@ cloud_user=<Cloud User. Normally it is elastic>
 search_index=<your index name>
 newsapi_key=<newsapi key>
 ```
+## Change requirements.txt
+Change the version of elasticsearch and other components accordingly
 
 ## Build and run Docker container
 `docker compose up -d`
