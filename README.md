@@ -37,7 +37,7 @@ Change the version of elasticsearch and other components accordingly
 `docker compose up -d`
 ## Initialize the environment
 This step will do the followings:
-1. Upload cl-tohoku/bert-base-japanese-v2 from Hagging Face
+1. Upload cl-tohoku/bert-base-japanese-v2 from Hugging Face
 2. Create the ingest pipeline to embed the vector
 3. Create the mapping
 
