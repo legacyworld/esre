@@ -18,6 +18,8 @@ Follow this link
 https://www.elastic.co/guide/en/cloud/current/ec-adding-elastic-plugins.html
 
 ## Create .env file
+### basic authentication for Elasticsearch
+If you include `esapi_key`, API Key access will be used even if you configure `cloud_pass` and `cloud_id`
 ```
 openai_api_key=<openapi key>
 openai_api_type=azure
@@ -27,6 +29,19 @@ openai_api_engine=<openapi engine>
 cloud_id=<cloud id of Elasticsearch Cluster>
 cloud_pass=<Cloud pass of Elasticsearch Cluster>
 cloud_user=<Cloud User. Normally it is elastic>
+search_index=<your index name>
+newsapi_key=<newsapi key>
+```
+### API Key authentication for Elasticsearch
+If you want to use Elasticsearch API Key, use the following `.env`.
+```
+openai_api_key=<openapi key>
+openai_api_type=azure
+openai_api_base=<openapi base url>
+openai_api_version=<openapi version>
+openai_api_engine=<openapi engine>
+cloud_id=<cloud id of Elasticsearch Cluster>
+esapi_key=<Elasticsearch API Key>
 search_index=<your index name>
 newsapi_key=<newsapi key>
 ```
@@ -41,14 +56,18 @@ This step will do the followings:
 2. Create the ingest pipeline to embed the vector
 3. Create the mapping
 
-Enter Docker Container and execute `create_index.py`
+Enter Docker Container and execute `initialize.sh`
+### Basic Authentication
 ```
 docker exec -it esre_flask /bin/bash
 python ./initialize.sh
 ```
-
-## index documents
+### API Key Authentication
 ```
+docker exec -it esre_flask /bin/bash
+python ./initialize_api.sh
+```
+## index documents
 docker exec -it esre_flask /bin/bash
 cd data
 ./load_all.sh

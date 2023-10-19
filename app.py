@@ -3,21 +3,39 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-cloud_id = os.environ['cloud_id']
-cloud_pass = os.environ['cloud_pass']
-cloud_user = os.environ['cloud_user']
-es = Elasticsearch(cloud_id=cloud_id, basic_auth=(cloud_user, cloud_pass),request_timeout=10)
+if "cloud_id" in os.environ:
+    cloud_id = os.environ['cloud_id']
+    if "esapi_key" in os.environ:
+        esapi_key = os.environ['esapi_key']
+        es = Elasticsearch(cloud_id=cloud_id, api_key=esapi_key,request_timeout=10)
+        print("api key used")
+    elif os.environ.keys() >= {'cloud_pass','cloud_user'}:
+        cloud_pass = os.environ['cloud_pass']
+        cloud_user = os.environ['cloud_user']
+        es = Elasticsearch(cloud_id=cloud_id, basic_auth=(cloud_user, cloud_pass),request_timeout=10)
+        print("basic authentication")
+    else:
+        print("Define cloud_pass/cloud_user or esapi_key")
+        exit()
+else:
+    print("Define cloud_id")
+    exit()
+
 print(es.info())
 search_index = os.environ['search_index']
 bm25_search_fields = ["title", "description"]
 bm25_result_fields = ["description", "url", "category", "title"]
 
 import openai
-openai.api_key = os.environ['openai_api_key']
-openai.api_type = os.environ['openai_api_type']
-openai.api_base = os.environ['openai_api_base']
-openai.api_version = os.environ['openai_api_version']
-engine = os.environ['openai_api_engine']
+if os.environ.keys() >= {'openai_api_key','openai_api_type','openai_api_base','openai_api_version','openai_api_engine'}:
+    openai.api_key = os.environ['openai_api_key']
+    openai.api_type = os.environ['openai_api_type']
+    openai.api_base = os.environ['openai_api_base']
+    openai.api_version = os.environ['openai_api_version']
+    engine = os.environ['openai_api_engine']
+else:
+    print("Define all openai parameters")
+    exit()
 
 def get_text_search_request_body(query, search_fields, result_fields, size=10):
     return {

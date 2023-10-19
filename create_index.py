@@ -3,10 +3,24 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-cloud_id = os.environ['cloud_id']
-cloud_pass = os.environ['cloud_pass']
-cloud_user = os.environ['cloud_user']
-es = Elasticsearch(cloud_id=cloud_id, basic_auth=(cloud_user, cloud_pass),request_timeout=10)
+if "cloud_id" in os.environ:
+    cloud_id = os.environ['cloud_id']
+    if "esapi_key" in os.environ:
+        esapi_key = os.environ['esapi_key']
+        es = Elasticsearch(cloud_id=cloud_id, api_key=esapi_key,request_timeout=10)
+        print("api key used")
+    elif os.environ.keys() >= {'cloud_pass','cloud_user'}:
+        cloud_pass = os.environ['cloud_pass']
+        cloud_user = os.environ['cloud_user']
+        es = Elasticsearch(cloud_id=cloud_id, basic_auth=(cloud_user, cloud_pass),request_timeout=10)
+        print("basic authentication")
+    else:
+        print("Define cloud_pass/cloud_user or esapi_key")
+        exit()
+else:
+    print("Define cloud_id")
+    exit()
+
 print(es.info())
 search_index = os.environ['search_index']
 pipeline_id = "japanese-text-embeddings"
