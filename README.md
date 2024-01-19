@@ -68,6 +68,7 @@ docker exec -it esre_flask /bin/bash
 python ./initialize_api.sh
 ```
 ## index documents
+```
 docker exec -it esre_flask /bin/bash
 cd data
 ./load_all.sh
