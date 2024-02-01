@@ -29,7 +29,7 @@ body = {
   "processors": [
     {
       "inference": {
-        "model_id": "cl-tohoku__bert-base-japanese-v2",
+        "model_id": "cl-tohoku__bert-base-japanese-v3",
         "target_field": "text_embedding",
         "field_map": {
           "title": "text_field"

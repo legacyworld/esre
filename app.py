@@ -61,7 +61,7 @@ def get_vector_search_request_body(query, search_fields, result_fields, size=10)
             "num_candidates": 100,
             "query_vector_builder": {
                 "text_embedding": {
-                    "model_id": "cl-tohoku__bert-base-japanese-v2", 
+                    "model_id": "cl-tohoku__bert-base-japanese-v3", 
                     "model_text": query
                 }
             }
@@ -85,7 +85,7 @@ def get_rrf_search_request_body(query, search_fields, result_fields, size=10):
             "num_candidates": 100,
             "query_vector_builder": {
                 "text_embedding": {
-                    "model_id": "cl-tohoku__bert-base-japanese-v2", 
+                    "model_id": "cl-tohoku__bert-base-japanese-v3", 
                     "model_text": query
                 }
             }
