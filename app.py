@@ -200,9 +200,10 @@ def route_api_stream():
         messages = {"message": [{"role": "system", "content": "Given the following extracted parts of a long document and a question, create a final answer. If you don't know the answer, just say '検索対象からは回答となる情報が見つかりませんでした'. Don't try to make up an answer."},{"role": "system", "content": truncated_prompt}]}
         completion = completion_with_backoff(engine=engine,temperature=0.2,messages=messages["message"],stream=True)
         for line in completion:
-            chunk = line['choices'][0].get('delta', {}).get('content', '')
-            if chunk:
-                yield chunk.strip()
+            if len(line['choices']) > 0:
+                chunk = line['choices'][0].get('delta', {}).get('content', '')
+                if chunk:
+                    yield chunk.strip()
     return Response(stream_with_context(stream_template("index.html",query=query,all=all,content=stream())))
 
 if __name__ == "__main__":
