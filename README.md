@@ -60,12 +60,12 @@ Enter Docker Container and execute `initialize.sh`
 ### Basic Authentication
 ```
 docker exec -it esre_flask /bin/bash
-python ./initialize.sh
+./initialize.sh
 ```
 ### API Key Authentication
 ```
 docker exec -it esre_flask /bin/bash
-python ./initialize_api.sh
+./initialize_api.sh
 ```
 ## index documents
 ```

@@ -60,6 +60,7 @@ body = {
         'analyzer': {
           'kuromoji_analyzer': {
             'tokenizer': 'ja_kuromoji_tokenizer',
+            'char_filter': ['normalize'],
             'filter': [
               'kuromoji_baseform',
               'kuromoji_part_of_speech',
